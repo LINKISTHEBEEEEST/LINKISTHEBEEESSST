@@ -39,9 +39,48 @@
         .button:hover {
             background-color: #ff4b88;
         }
-        img {
-            width: 150px;
-            margin-top: 20px;
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            max-width: 90%;
+            width: 700px;
+        }
+        .modal-content video {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff60a1;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            line-height: 30px;
+        }
+        .close-button:hover {
+            background-color: #ff4b88;
         }
     </style>
 </head>
@@ -50,7 +89,29 @@
     <h1>You Are the Sweetest!</h1>
     <p>Yes, you Linkyyyyyyyyyy! <span class="heart">💖</span></p>
 
-    <button class="button" onclick="alert('You are the sweetest and thats it!')">Click to Get a Sweet Message</button>
+    <button class="button" onclick="alert('You are the sweetest and that\'s it!')">Click to Get a Sweet Message</button>
+    <br><br>
+    <button class="button" onclick="openModal()">Watch a Sweet Video</button>
+
+    <!-- Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">×</button>
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('videoModal').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
